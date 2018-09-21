@@ -4,7 +4,37 @@ html(lang='en')
 		title Silencer
 		link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO', crossorigin='anonymous')
 		link(href='https://bootswatch.com/4/flatly/bootstrap.min.css', rel='stylesheet', integrity='sha384-+YpxMU1QQywaQtI3dMQAwIcu0vVDuOREjQPC59qblQHg9nTdcrUXMPnanUaldUnY', crossorigin='anonymous')
-		link(rel='stylesheet', href='css/index.css')
+		link(rel='stylesheet', href='../css/index.css')
+		<style type="text/css">
+		include ../css/index.css
+		</style>
+		script(type='text/javascript').
+			function draw()
+			{
+			var canvas = document.getElementById("canvas");
+			var con = canvas.getContext("2d");
+			con.strokeStyle = "black";
+			con.strokeRect(0, 0, 300, 200);
+			con.strokeStyle = "green";
+			con.lineWidth = "1";
+			con.beginPath();
+			con.moveTo(192.5182, 45.4739);
+			con.lineTo(195.2991, 47.7629);
+			con.lineTo(204.7748, 46.6458);
+			con.lineTo(210.6113, 50.1874);
+			con.lineTo(219.6750, 71.4020);
+			con.lineTo(233.2706, 78.8399);
+			con.lineTo(231.3137, 89.6848);
+			con.lineTo(226.8161, 90.2808);
+			con.lineTo(213.6325, 80.1964);
+			con.lineTo(204.7062, 79.7624);
+			con.lineTo(196.1231, 71.9452);
+			con.lineTo(155.9543, 81.3899);
+			con.lineTo(155.7483, 54.2174);
+			con.lineTo(147.4399, 48.6620);
+			con.closePath();
+			con.stroke();
+			}
 	body(ng-app='MEANapp')
 		script.
 			var loc = window.location.pathname;
@@ -216,7 +246,9 @@ html(lang='en')
 		nav.navbar.navbar-expand-lg.navbar-dark(ng-controller='HeaderController')
 			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo03', aria-controls='navbarTogglerDemo03', aria-expanded='false', aria-label='Toggle navigation', style='')
 				span.navbar-toggler-icon
-			a.navbar-brand(href='/') Silencer
+			a.navbar-brand(href='/protected') Silencer
+			a(href='/protected')
+				img.img-fluid(src='../assets/profesor.png', height='30', width='30')
 			#navbarTogglerDemo03.collapse.navbar-collapse
 				ul.navbar-nav.mr-auto.mt-2.mt-lg-0
 					li.nav-item.active
@@ -237,6 +269,8 @@ html(lang='en')
 			.row
 				.col-md-9(style='background-color: lightgreen;')
 					div map goes in here
+					canvas#canvas(height='200', width='300')
+						p Canvas not supported!
 				.col-md-3
 					.row-md-2(style='background-color: lightblue;')
 						div(ng-controller='FilterController')

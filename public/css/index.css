@@ -14,7 +14,15 @@ html, body{
 	margin: 0px;
 	padding: 0px;
 }
-
+.img-fluid{
+      filter: gray;
+      -webkit-filter: grayscale(1);
+      -webkit-transition: all .8s ease-in-out;  
+    }
+    img:hover {
+    filter: none;
+      -webkit-filter: grayscale(0);
+}
 .navbar{
 	background-color: #173d5b;
 }
