@@ -1,0 +1,276 @@
+doctype html
+html(lang='en')
+	head
+		title Silencer
+		link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO', crossorigin='anonymous')
+		link(href='https://bootswatch.com/4/flatly/bootstrap.min.css', rel='stylesheet', integrity='sha384-+YpxMU1QQywaQtI3dMQAwIcu0vVDuOREjQPC59qblQHg9nTdcrUXMPnanUaldUnY', crossorigin='anonymous')
+		link(rel='stylesheet', href='css/index.css')
+	body(ng-app='MEANapp')
+		script.
+			var loc = window.location.pathname;
+			console.log(loc);
+
+			function generateStat(){
+
+
+
+				//console.log("In generate stast func");
+
+				// alert("Entering");
+
+				var start = document.getElementById("Start").value;
+				 var city = document.getElementById("cityList").value;
+
+				localStorage.setItem("city", city);
+				
+
+				window.location.replace("stats");
+
+				
+				
+			}
+
+			function setStat(){
+
+				var city = localStorage.getItem("city");
+				console.log(city);
+
+				if (city == "SanJose"){
+					var date = document.getElementById("date");
+					date.innerHTML = new Date();
+			 
+					var temp = document.getElementById("state");
+					state.innerHTML = "CA";
+
+					temp  = document.getElementById("city");
+					temp.innerHTML = localStorage.getItem("city");
+
+					temp  = document.getElementById("address");
+					temp.innerHTML = "16000 block of East Ithaca Place";
+
+					temp  = document.getElementById("numbersKilled");
+					temp.innerHTML = "4";
+					temp  = document.getElementById("injured");
+					temp.innerHTML = "0";
+
+					temp  = document.getElementById("incidentUrl");
+					temp.innerHTML = "";
+
+					temp  = document.getElementById("sourceurl");
+					temp.innerHTML = "http://www.gunviolencearchive.org/incident/478925";
+
+				   
+
+					temp  = document.getElementById("congressionalDistrict");
+					temp.innerHTML = localStorage.getItem("city");;
+
+					temp  = document.getElementById("stolen");
+					temp.innerHTML = "NO";
+
+					temp  = document.getElementById("gunType");
+					temp.innerHTML = "NA";
+
+
+				 }else if(city == "LosAngeles"){
+					var date = document.getElementById("date");
+					date.innerHTML = new Date();
+			 
+					var temp = document.getElementById("state");
+					state.innerHTML = "CA";
+
+					temp  = document.getElementById("city");
+					temp.innerHTML = localStorage.getItem("city");
+
+					temp  = document.getElementById("address");
+					temp.innerHTML = "13500 block of Cerise Avenue";
+
+					temp  = document.getElementById("numbersKilled");
+					temp.innerHTML = "6";
+					temp  = document.getElementById("injured");
+					temp.innerHTML = "2";
+
+					temp  = document.getElementById("incidentUrl");
+					temp.innerHTML = "";
+
+					temp  = document.getElementById("sourceurl");
+					temp.innerHTML = "http://losangeles.cbslocal.com/2013/01/01/man-killed-3-wounded-at-nye-party-in-hawthorne/";
+
+				   
+
+					temp  = document.getElementById("congressionalDistrict");
+					temp.innerHTML = localStorage.getItem("city");;
+
+					temp  = document.getElementById("stolen");
+					temp.innerHTML = "NO";
+
+					temp  = document.getElementById("gunType");
+					temp.innerHTML = "AK-47";
+
+				 }else if(city == "Hawthorne"){
+					var date = document.getElementById("date");
+					date.innerHTML = new Date();
+			 
+					var temp = document.getElementById("state");
+					state.innerHTML = "CA";
+
+					temp  = document.getElementById("city");
+					temp.innerHTML = localStorage.getItem("city");
+
+					temp  = document.getElementById("address");
+					temp.innerHTML = "1000 block of Flat Town Road";
+
+					temp  = document.getElementById("numbersKilled");
+					temp.innerHTML = "2";
+					temp  = document.getElementById("injured");
+					temp.innerHTML = "9";
+
+					temp  = document.getElementById("incidentUrl");
+					temp.innerHTML = "";
+
+					temp  = document.getElementById("sourceurl");
+					temp.innerHTML = "http://theadvocate.com/home/5018249-125/3-law-enforcement-officers-shot";
+
+				   
+
+					temp  = document.getElementById("congressionalDistrict");
+					temp.innerHTML = localStorage.getItem("city");;
+
+					temp  = document.getElementById("stolen");
+					temp.innerHTML = "NO";
+
+					temp  = document.getElementById("gunType");
+					temp.innerHTML = "NA";
+
+				 }else if(city == "Lorain"){
+					var date = document.getElementById("date");
+					date.innerHTML = new Date();
+			 
+					var temp = document.getElementById("state");
+					state.innerHTML = "CA";
+
+					temp  = document.getElementById("city");
+					temp.innerHTML = localStorage.getItem("city");
+
+					temp  = document.getElementById("address");
+					temp.innerHTML = "504 Calle Montecito";
+
+					temp  = document.getElementById("numbersKilled");
+					temp.innerHTML = "7";
+					temp  = document.getElementById("injured");
+					temp.innerHTML = "2";
+
+					temp  = document.getElementById("incidentUrl");
+					temp.innerHTML = "";
+
+					temp  = document.getElementById("sourceurl");
+					temp.innerHTML = "http://www.cbs8.com/story/21637042/2-teens-killed-2-injured-in-barrage-of-bullets-at-oceanside-park";
+
+				   
+
+					temp  = document.getElementById("congressionalDistrict");
+					temp.innerHTML = localStorage.getItem("city");;
+
+					temp  = document.getElementById("stolen");
+					temp.innerHTML = "NO";
+
+					temp  = document.getElementById("gunType");
+					temp.innerHTML = "NA";
+
+				 }else if(city == "Aurora"){
+					var date = document.getElementById("date");
+					date.innerHTML = new Date();
+			 
+					var temp = document.getElementById("state");
+					state.innerHTML = "CA";
+
+					temp  = document.getElementById("city");
+					temp.innerHTML = localStorage.getItem("city");
+
+					temp  = document.getElementById("address");
+					temp.innerHTML = "2900 block of Greenwood Avenue";
+
+					temp  = document.getElementById("numbersKilled");
+					temp.innerHTML = "9";
+					temp  = document.getElementById("injured");
+					temp.innerHTML = "1";
+
+					temp  = document.getElementById("incidentUrl");
+					temp.innerHTML = "";
+
+					temp  = document.getElementById("sourceurl");
+					temp.innerHTML = "http://www.wapt.com/news/central-mississippi/jackson/Police-arrest-man-in-quadruple-shooting/19231618";
+
+				   
+
+					temp  = document.getElementById("congressionalDistrict");
+					temp.innerHTML = localStorage.getItem("city");;
+
+					temp  = document.getElementById("stolen");
+					temp.innerHTML = "NO";
+
+					temp  = document.getElementById("gunType");
+					temp.innerHTML = "NA";
+
+				 }
+			}
+		nav.navbar.navbar-expand-lg.navbar-dark(ng-controller='HeaderController')
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo03', aria-controls='navbarTogglerDemo03', aria-expanded='false', aria-label='Toggle navigation', style='')
+				span.navbar-toggler-icon
+			a.navbar-brand(href='/') Silencer
+			#navbarTogglerDemo03.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+					li.nav-item.active
+						a.nav-link(href='/')
+							| Home
+							span.sr-only (current)
+					li.nav-item
+						a.nav-link(href='#/account/search', ng-show='user.status') Search
+					li.nav-item
+						a.nav-link(href='#/account', ng-show='user.status') Account
+					li.nav-item
+						a.nav-link(href='#/account/login', ng-hide='user.status') Login
+					li.nav-item
+						a.nav-link(href='', ng-click='logout()', ng-show='user.status') Logout
+					li.nav-item
+						a.nav-link(href='', ng-show='user.status', ng-model='user.user.username') Welcome: {{user.user.username}}
+		.container-fluid
+			.row
+				.col-md-9(style='background-color: lightgreen;')
+					div map goes in here
+				.col-md-3
+					.row-md-2(style='background-color: lightblue;')
+						div(ng-controller='FilterController')
+							.container-filter.container-blue(ng-view='')
+								div(autocomplete='on', ng-submit='filter()', name='SubmitForm')
+									fieldset
+										.form-group
+											label.col-form-label(for='Start') Start
+											input#Start.form-control(type='date', name='start', placeholder='Start Date', ng-model='SubmitForm1.start')
+											small#Start-Help.form-text.text-help Start Date
+											select#cityList
+												option(value='noCity') ----Select City-----
+												option(value='SanJose') San Jose
+												option(value='LosAngeles') Los Angeles
+												option(value='Hawthorne') Hawthorne
+												option(value='Lorain') Lorain
+												option(value='Aurora') Aurora
+											//
+												<label class="col-form-label" for="End">End</label>
+												<input type="date" id="End" class="form-control" name="to"  placeholder="End Date" ng-model="SubmitForm1.end">
+												<small id="End-Help" class="form-text text-help">Start End Date</small>
+											br
+											button.btn.btn-primary(onclick='generateStat()') Apply Filter
+					.row-md-10(style='background-color: honeydew;')
+						div(ng-controller='StatsController')
+							#stat-div.container-stats.container-green(ng-view='')
+								// Stats view loaded here via $routeProvider in app.js
+								// Angular Scripts
+								script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js')
+								script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-route.min.js')
+								script(src='//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js')
+								// Bootstrap Features
+								script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+								script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', integrity='sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ', crossorigin='anonymous')
+								script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', integrity='sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm', crossorigin='anonymous')
+								// Your Scripts
+								script(src='js/app.js')
