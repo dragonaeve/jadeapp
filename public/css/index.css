@@ -14,16 +14,10 @@ html, body{
 .row{
 	height: 100%;
 	width: 100%;
-	margin: 0;
-	padding: 0;
 }
 .col{
 	width: 100%;
 	height: 100%;
-	margin: 0;
-	margin-right: 0;
-	margin-left: 0;
-	padding: 0;
 }
 .no-gutters {
   margin-right: 0;
