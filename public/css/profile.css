@@ -1,23 +1,49 @@
 .position-relative{
-    position: relative;
-}
+     width:100%;
+    }
 
 
-header{
+.header{
+    position:absolute;
     background-color: black;
     padding-top: 12px;
     padding-bottom: 12px;
     color: white;
     font-size: 20px;
     display: block;
-    padding-left:50px;
+    /* padding-left:50px; */
     padding-right: 50px;
-        font-weight: bold;
+    font-weight: bold;
+    height:5%;
+    width: 100%;
 
 }
 
 .logo{
-    font-weight: bold;
+   position: absolute;
+    -webkit-animation-name: flowingLogo;
+    animation-name: flowingLogo;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-duration: 4s;
+    -webkit-animation-duration: 4s;
+    left: 0px;
+}
+
+@-webkit-keyframes flowingLogo {
+    0%   {left:0px; }
+    25%  {left:750px;}
+    50%  {left:1500px;}
+    75%  {left:750px;}
+    100% {left:0px;}
+}
+
+@keyframes flowingLogo {
+    0%   {left:0px; }
+    25%  {left:750px;}
+    50%  {left:1500px;}
+    75%  {left:750px;}
+    100% {left:0px;}
 }
 
 body{
