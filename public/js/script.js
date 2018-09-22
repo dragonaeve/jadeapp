@@ -15,7 +15,7 @@ function generateStat(){
     localStorage.setItem("city", city);
     
 
-    window.location.replace("../views/stats");
+    window.location.replace("stats");
 
     
     
