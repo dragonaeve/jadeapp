@@ -1,4 +1,4 @@
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family: Arial, Helvetica, sans-serif; background-image: url("../assets/shooting.jpg"); background-size: 100%;}
 form {border: 3px solid #f1f1f1; width: 50%; text-align: center; margin-left: 350px;}
 
 button {

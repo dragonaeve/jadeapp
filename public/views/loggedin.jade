@@ -1,9 +1,12 @@
 html
 	head
 		link(rel='stylesheet', href='../jquery-ui-1.12.1.custom/jquery-ui.css')
+		link(rel='stylesheet', href='../css/registration.css')
 		title Logged in page
 		body
-			p Hi, #{name}, you're now logged in.
-			p You may visit the protected page.
+			p
+				strong Hi, #{name}, you're now logged in.
+			p 
+				strong You may visit the protected page.
 			a(href="protected")
 				.ui-button(type="button") Protected
