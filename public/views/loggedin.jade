@@ -1,8 +1,9 @@
 html
 	head
+		link(rel='stylesheet', href='../jquery-ui-1.12.1.custom/jquery-ui.css')
 		title Logged in page
 		body
 			p Hi, #{name}, you're now logged in.
 			p You may visit the protected page.
 			a(href="protected")
-				button(type="button") Protected
+				.ui-button(type="button") Protected
