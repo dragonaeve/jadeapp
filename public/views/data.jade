@@ -57,7 +57,7 @@ html(lang='en')
 												<small id="End-Help" class="form-text text-help">Start End Date</small>
 											br
 											.ui-button.btn.btn-primary(onclick='generateStat()') Apply Filter
-					.col-no-gutters.h-50.row-md-10.flex-grow-1(style='background-color: honeydew;')
+					.col-no-gutters.h-100.row-md-10.flex-grow-1(style='background-color: honeydew;')
 						script.
 							$(function () {
 								$("#tabs").tabs();
@@ -65,11 +65,11 @@ html(lang='en')
 						#tabs
 							ul
 								li
-									a(href='#tabs-1') About
+									a(href='#tabs-1') Add Data
 								li
 									a(href='#tabs-2') Contact
 							#tabs-1
-								p filler
+								iframe(src='views/addData.html', height='100%', width='100%')
 							#tabs-2
 								p
 								ol
