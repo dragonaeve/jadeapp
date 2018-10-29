@@ -33,7 +33,7 @@ html(lang='en')
 		.container-fluid
 			.row.no-gutters
 				.col-md-6.no-gutters(style='background-color: lightgreen;')
-					p display goes here
+					iframe(src='views/addData.html', height='100%', width='100%')
 				.col-md-6(style='height: 100%;')
 					.row-md-2.row-lg-2(style='background-color: lightblue;')
 						div(ng-controller='FilterController')
@@ -69,7 +69,7 @@ html(lang='en')
 								li
 									a(href='#tabs-2') Contact
 							#tabs-1
-								iframe(src='views/addData.html', height='100%', width='100%')
+								
 							#tabs-2
 								p
 								ol
