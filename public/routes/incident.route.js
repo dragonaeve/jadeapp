@@ -15,6 +15,7 @@ router.use(methodOverride(function(req,res){
 }));
 
 router.route('/')
+    //GET all incidents
     .get(function(req,res,next){
         mongoose.model('Incident').find({},function(err,incident){
             if(err){
@@ -22,7 +23,7 @@ router.route('/')
             }else{
                 res.format({
                     html: function(){
-                        res.render('incident/index',{
+                        res.render('incidents/index',{
                             title:'All gun incidents',
                             "incidents": incident
                         });
