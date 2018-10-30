@@ -1,0 +1,117 @@
+doctype html
+html(lang='en')
+	head
+		#{title}
+		link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO', crossorigin='anonymous')
+		link(href='https://bootswatch.com/4/flatly/bootstrap.min.css', rel='stylesheet', integrity='sha384-+YpxMU1QQywaQtI3dMQAwIcu0vVDuOREjQPC59qblQHg9nTdcrUXMPnanUaldUnY', crossorigin='anonymous')
+		link(rel='stylesheet', href='../css/index.css')
+		link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/theincident/base/jquery-ui.css')
+		script(src='https://code.jquery.com/jquery-1.12.4.js')
+		script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+			script(src='https://code.jquery.com/jquery-3.3.1.js')
+				script(type='text/javascript', src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+		<style type ="text/css">
+		include ../../css/index.css
+		</style>
+	body
+		script(src='js/script.js')
+		nav.navbar.navbar-expand-lg.navbar-dark(ng-controller='HeaderController')
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo03', aria-controls='navbarTogglerDemo03', aria-expanded='false', aria-label='Toggle navigation', style='')
+				span.navbar-toggler-icon
+			a.navbar-brand(href='/protected') Silencer
+			a(href='/protected')
+				img.img-fluid(src='../assets/profesor.png', height='30', width='30')
+			#navbarTogglerDemo03.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+					li.nav-item
+						a.nav-link(href='/protected')
+							| Home
+					li.nav-item
+						a.nav-link(href='/incidents')
+							| Incidents
+					li.nav-item
+						a.nav-link(href='/incidents/addData')
+							| Add Entry
+					li.nav-item.active
+						a.nav-link(href='#')
+							| Search
+							span.sr-only (current)
+		.container
+			block content
+					h1.
+						p Search by State
+					form#adddataformA(action='/incidents', style='border: 1px solid grey; align-self: center; margin-top: 100px; box-shadow: 7px 7px #f1f1f1; ', method='POST')
+						fieldset
+							.form-group
+								p
+									label.col-form-label(for='state') State
+									select#state(name='state')
+										option(value='', selected='selected') Select a State
+										option(value='AL') Alabama
+										option(value='AK') Alaska
+										option(value='AZ') Arizona
+										option(value='AR') Arkansas
+										option(value='CA') California
+										option(value='CO') Colorado
+										option(value='CT') Connecticut
+										option(value='DE') Delaware
+										option(value='DC') District Of Columbia
+										option(value='FL') Florida
+										option(value='GA') Georgia
+										option(value='HI') Hawaii
+										option(value='ID') Idaho
+										option(value='IL') Illinois
+										option(value='IN') Indiana
+										option(value='IA') Iowa
+										option(value='KS') Kansas
+										option(value='KY') Kentucky
+										option(value='LA') Louisiana
+										option(value='ME') Maine
+										option(value='MD') Maryland
+										option(value='MA') Massachusetts
+										option(value='MI') Michigan
+										option(value='MN') Minnesota
+										option(value='MS') Mississippi
+										option(value='MO') Missouri
+										option(value='MT') Montana
+										option(value='NE') Nebraska
+										option(value='NV') Nevada
+										option(value='NH') New Hampshire
+										option(value='NJ') New Jersey
+										option(value='NM') New Mexico
+										option(value='NY') New York
+										option(value='NC') North Carolina
+										option(value='ND') North Dakota
+										option(value='OH') Ohio
+										option(value='OK') Oklahoma
+										option(value='OR') Oregon
+										option(value='PA') Pennsylvania
+										option(value='RI') Rhode Island
+										option(value='SC') South Carolina
+										option(value='SD') South Dakota
+										option(value='TN') Tennessee
+										option(value='TX') Texas
+										option(value='UT') Utah
+										option(value='VT') Vermont
+										option(value='VA') Virginia
+										option(value='WA') Washington
+										option(value='WV') West Virginia
+										option(value='WI') Wisconsin
+										option(value='WY') Wyoming
+								br
+								button(input='', type='submit', style='margin-bottom: 20px') Search
+								button(input='', type='reset', style='margin-bottom: 20px') Reset
+					ul
+							- each incident, i in incidents
+									li
+											= incident.date
+											= incident.state
+											= incident._id
+											form(action='/incidents/#{incident._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+													input(type='hidden',value='DELETE',name='_method')
+													button(type='submit').
+															Delete
+											p 
+													a(href='/incidents/#{incident._id}/edit') Edit
+											p
+													a(href='/incidents/#{incident._id}') Show
