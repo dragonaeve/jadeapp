@@ -51,7 +51,7 @@ router.route('/')
         var incident_characteristics = req.body.incident_characteristics;
         var latitude = req.body.latitude;
         var location_description = req.body.location_description;
-        var logitude = req.body.logitude;
+        var longitude = req.body.longitude;
         var n_guns_involved = req.body.n_guns_involved;
         var notes = req.body.notes;
         var participant_age = req.body.participant_age;
@@ -70,7 +70,7 @@ router.route('/')
             incident_characteristics:incident_characteristics,
             latitude:latitude,
             location_description:location_description,
-            logitude:logitude,
+            longitude:longitude,
             n_guns_involved:n_guns_involved,
             notes:notes,
             participant_age:participant_age
@@ -100,7 +100,7 @@ router.route('/')
     });
 
     router.get('/addData', function(req,res){
-        res.render('/addData',{title: 'Add new incidents'});
+        res.render('incidents/adddata',{title: 'Add new incidents'});
     });
 
     // route middleware to validate :id
