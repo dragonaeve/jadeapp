@@ -153,5 +153,100 @@ router.route('/:id')
     });
   });
 
+  //GET the individual blob by Mongo ID
+router.get('/:id/edit', function(req, res) {
+    //search for the blob within Mongo
+    mongoose.model('Incident').findById(req.id, function (err, incident) {
+        if (err) {
+            console.log('GET Error: There was a problem retrieving: ' + err);
+        } else {
+            //Return the incident
+            console.log('GET Retrieving ID: ' + incident._id);
+            //format the date properly for the value to show correctly in our edit form
+        //   var blobdob = blob.dob.toISOString();
+        //   blobdob = blobdob.substring(0, blobdob.indexOf('T'))
+            res.format({
+                //HTML response will render the 'edit.jade' template
+                html: function(){
+                       res.render('inicidents/edit', {
+                          title: 'Incident' + incident._id,
+                          "incident" : incident
+                      });
+                 },
+                 //JSON response will return the JSON output
+                json: function(){
+                       res.json(incident);
+                 }
+            });
+        }
+    });
+});
+
+//PUT to update a blob by ID
+router.put('/:id/edit', function(req, res) {
+    // Get our REST or form values. These rely on the "name" attributes
+    var date = req.body.date;
+    var state = req.body.state;
+    var citycounty = req.body.citycounty;
+    var address = req.body.address;
+    var n_killed = req.body.n_killed;
+    var n_injured = req.body.n_injured;
+    var incident_url = req.body.incident_url;
+    var source_url = req.body.source_url;
+    var congressional_district = req.body.congressional_district;
+    var gun_type = req.body.gun_type;
+    var incident_characteristics = req.body.incident_characteristics;
+    var latitude = req.body.latitude;
+    var location_description = req.body.location_description;
+    var logitude = req.body.logitude;
+    var n_guns_involved = req.body.n_guns_involved;
+    var notes = req.body.notes;
+    var participant_age = req.body.participant_age;
+
+
+   //find the document by ID
+        mongoose.model('Incident').findById(req.id, function (err, incident) {
+            //update it
+            incident.update({
+                date:date,
+                state:state,
+                citycounty:citycounty,
+                address:address,
+                n_killed:n_killed,
+                n_injured:n_injured,
+                incident_url:incident_url,
+                source_url:source_url,
+                congressional_district:congressional_district,
+                gun_type:gun_type,
+                incident_characteristics:incident_characteristics,
+                latitude:latitude,
+                location_description:location_description,
+                logitude:logitude,
+                n_guns_involved:n_guns_involved,
+                notes:notes,
+                participant_age:participant_age
+        
+            }, function (err, incidentID) {
+              if (err) {
+                  res.send("There was a problem updating the information to the database: " + err);
+              } 
+              else {
+                      //HTML responds by going back to the page or you can be fancy and create a new view that shows a success page.
+                      res.format({
+                          html: function(){
+                               res.redirect("/incidents/" + incident._id);
+                         },
+                         //JSON responds showing the updated values
+                        json: function(){
+                               res.json(incident);
+                         }
+                      });
+               }
+            })
+        });
+});
+
+
+
 
   module.exports = router;
