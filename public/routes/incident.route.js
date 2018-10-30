@@ -153,7 +153,7 @@ router.route('/:id')
     });
   });
 
-  //GET the individual blob by Mongo ID
+    //GET the individual blob by Mongo ID
 router.get('/:id/edit', function(req, res) {
     //search for the blob within Mongo
     mongoose.model('Incident').findById(req.id, function (err, incident) {
@@ -246,7 +246,36 @@ router.put('/:id/edit', function(req, res) {
         });
 });
 
+//DELETE a incident by ID
+router.delete('/:id/edit', function (req, res){
+    //find incident by ID
+    mongoose.model('Incident').findById(req.id, function (err, incident) {
+        if (err) {
+            return console.error(err);
+        } else {
+            //remove it from Mongo
+            incident.remove(function (err, incident) {
+                if (err) {
+                    return console.error(err);
+                } else {
+                    //Returning success messages saying it was deleted
+                    console.log('DELETE removing ID: ' + incident._id);
+                    res.format({
+                        //HTML returns us back to the main page, or you can create a success page
+                          html: function(){
+                               res.redirect("/incidents");
+                         },
+                         //JSON returns the item with the message that is has been deleted
+                        json: function(){
+                               res.json({message : 'deleted',
+                                   item : incident
+                               });
+                         }
+                      });
+                }
+            });
+        }
+    });
+});
 
-
-
-  module.exports = router;
+module.exports = router;
