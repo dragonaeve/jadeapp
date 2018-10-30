@@ -33,4 +33,6 @@ router.get('/logout', ctrlMain.get_logout);
 
 router.get('/protected', ctrlMain.loggedIn, ctrlMain.get_protected);
 
+router.get('/incidents/search', ctrlMain.loggedIn, ctrlMain.get_search);
+
 module.exports = router ; 

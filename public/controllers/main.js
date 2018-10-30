@@ -153,3 +153,10 @@ module.exports.get_protected = function(req, res)
 {
     res.render('protected', {name: req.session.user.username});
 }; 
+
+//GET search page
+
+module.exports.get_search = function(req, res)
+{
+    res.render('incidents/search');
+}; 

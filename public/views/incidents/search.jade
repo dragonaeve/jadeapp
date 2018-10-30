@@ -39,7 +39,7 @@ html(lang='en')
 		.container
 			block content
 					h1.
-						p Search by State
+						Search by State
 					form#adddataformA(action='/incidents', style='border: 1px solid grey; align-self: center; margin-top: 100px; box-shadow: 7px 7px #f1f1f1; ', method='POST')
 						fieldset
 							.form-group
@@ -101,17 +101,3 @@ html(lang='en')
 								br
 								button(input='', type='submit', style='margin-bottom: 20px') Search
 								button(input='', type='reset', style='margin-bottom: 20px') Reset
-					ul
-							- each incident, i in incidents
-									li
-											= incident.date
-											= incident.state
-											= incident._id
-											form(action='/incidents/#{incident._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
-													input(type='hidden',value='DELETE',name='_method')
-													button(type='submit').
-															Delete
-											p 
-													a(href='/incidents/#{incident._id}/edit') Edit
-											p
-													a(href='/incidents/#{incident._id}') Show

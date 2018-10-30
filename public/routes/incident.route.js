@@ -278,4 +278,17 @@ router.delete('/:id/edit', function (req, res){
     });
 });
 
+router.route('/search')
+  .get(function(req, res) {
+        res.format({
+          html: function(){
+              res.render('incidents/search'
+              );
+          },
+          json: function(){
+              res.json(incident);
+          }
+        });
+      });
+
 module.exports = router;
