@@ -168,7 +168,7 @@ router.get('/:id/edit', function(req, res) {
             res.format({
                 //HTML response will render the 'edit.jade' template
                 html: function(){
-                       res.render('inicidents/edit', {
+                       res.render('incidents/edit', {
                           title: 'Incident' + incident._id,
                           "incident" : incident
                       });
@@ -289,6 +289,30 @@ router.route('/search')
               res.json(incident);
           }
         });
-      });
+      })
+  .post(function(req,res){
+        var search_state = req.body.search_state;
+        },function(err,incident){
+            if(err){
+                res.send("There was a problem searching the database!");
+            }
+            else{
+                console.log('POST searching incident');
+                res.format({
+                    html: function(){
+                        res.location("incidents");
+                        res.redirect("/incidents");
+
+                    },
+
+                    json: function(){
+                        res.json(incident);
+                    }
+                });
+                
+            }
+            
+        }
+    );
 
 module.exports = router;

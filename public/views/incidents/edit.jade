@@ -23,53 +23,59 @@ html(lang='en')
 				img.img-fluid(src='../assets/profesor.png', height='30', width='30')
 			#navbarTogglerDemo03.collapse.navbar-collapse
 				ul.navbar-nav.mr-auto.mt-2.mt-lg-0
-					li.nav-item.active
-						a.nav-link(href='/')
+					li.nav-item
+						a.nav-link(href='/protected')
 							| Home
+					li.nav-item
+						a.nav-link.active(href='/incidents')
+							| Incidents
 							span.sr-only (current)
 					li.nav-item
-						a.nav-link(href='/incidents')
-							| Data
+						a.nav-link(href='/incidents/addData')
+							| Add Entry
+					li.nav-item
+						a.nav-link(href='/incidents/search')
+							| Search
 		.container-fluid
-        h1.
-        Incident ID #{incident._id}
-    form(action='/incidents/#{incident._id}/edit',method='post',name='updateincident',enctype='application/x-www-form-urlencoded')
-        p Date: 
-            input#inputDate(type='date', value='div incident.date', name='date')
-        p State: 
-            input#inputState(type='text', value='#{incident.state}', name='state')
-        p City/County: 
-            input#inputCityCounty(type='text', value='#{incident.citycounty}', name='citycounty')
-        p _Address: 
-            input#inputAddress(type='text', value='#{incident.address}', name='address')
-        p # of people killed: 
-            input#inputKilled(type='text', value='#{incident.n_killed}', name='n_killed')
-        p # of people injured: 
-            input#inputInjured(type='text', value='#{incident.n_injured}', name='n_injured')
-        p Incident-Source: 
-            input#inputincident_url(type='text', value='#{incident.incident_url}', name='incident_url')
-        p Data-Source: 
-            input#inputsource_url(type='text', value='#{incident.source_url}', name='source_url')
-        p congressional_district: 
-            input#inputcongressional_district(type='text', value='#{incident.congressional_district}', name='congressional_district')
-        p gun_type: 
-            input#inputgun_type(type='text', value='#{incident.gun_type}', name='gun_type')
-        p incident_characteristics: 
-            input#inputincident_characteristics(type='text', value='#{incident.incident_characteristics}', name='incident_characteristics')
-        p latitude: 
-            input#inputlatitude(type='text', value='#{incident.latitude}', name='latitude')
-        p location_description: 
-            input#inputlocation_description(type='text', value='#{incident.location_description}', name='location_description')
-        p logitude: 
-            input#inputlogitude(type='text', value='#{incident.logitude}', name='logitude')
-        p n_guns_involved: 
-            input#inputlogitude(type='text', value='#{incident.logitude}', name='logitude')
-        p notes: 
-            input#inputnotes(type='text', value='#{incident.notes}', name='notes')
-        p participant_age: 
-            input#inputparticipant_age(type='text', value='#{incident.participant_age}', name='participant_age') 
-        p 
-            input(type='hidden',value='PUT',name='_method')
-        p 
-            button#btnSubmit(type='submit').
-                Update
+			h1.
+				Incident ID #{incident._id}
+			form(action='/incidents/#{incident._id}/edit',method='post',name='updateincident',enctype='application/x-www-form-urlencoded')
+				p Date: 
+					input#inputDate(type='date', value='div incident.date', name='date')
+				p State: 
+					input#inputState(type='text', value='#{incident.state}', name='state')
+				p City/County: 
+					input#inputCityCounty(type='text', value='#{incident.citycounty}', name='citycounty')
+				p _Address: 
+					input#inputAddress(type='text', value='#{incident.address}', name='address')
+				p # of people killed: 
+					input#inputKilled(type='text', value='#{incident.n_killed}', name='n_killed')
+				p # of people injured: 
+					input#inputInjured(type='text', value='#{incident.n_injured}', name='n_injured')
+				p Incident-Source: 
+					input#inputincident_url(type='text', value='#{incident.incident_url}', name='incident_url')
+				p Data-Source: 
+					input#inputsource_url(type='text', value='#{incident.source_url}', name='source_url')
+				p congressional_district: 
+					input#inputcongressional_district(type='text', value='#{incident.congressional_district}', name='congressional_district')
+				p gun_type: 
+					input#inputgun_type(type='text', value='#{incident.gun_type}', name='gun_type')
+				p incident_characteristics: 
+					input#inputincident_characteristics(type='text', value='#{incident.incident_characteristics}', name='incident_characteristics')
+				p latitude: 
+					input#inputlatitude(type='text', value='#{incident.latitude}', name='latitude')
+				p location_description: 
+					input#inputlocation_description(type='text', value='#{incident.location_description}', name='location_description')
+				p longitude: 
+					input#inputlongitude(type='text', value='#{incident.longitude}', name='longitude')
+				p n_guns_involved: 
+					input#inputn_guns(type='text', value='#{incident.n_guns}', name='n_guns')
+				p notes: 
+					input#inputnotes(type='text', value='#{incident.notes}', name='notes')
+				p participant_age: 
+					input#inputparticipant_age(type='text', value='#{incident.participant_age}', name='participant_age') 
+				p 
+					input(type='hidden',value='PUT',name='_method')
+				p 
+					button#btnSubmit(type='submit').
+						Update

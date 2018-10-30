@@ -40,12 +40,12 @@ html(lang='en')
 			block content
 					h1.
 						Search by State
-					form#adddataformA(action='/incidents', style='border: 1px solid grey; align-self: center; margin-top: 100px; box-shadow: 7px 7px #f1f1f1; ', method='POST')
+					form#searchformA(action='/search', style='border: 1px solid grey; align-self: center; margin-top: 100px; box-shadow: 7px 7px #f1f1f1; ', method='POST')
 						fieldset
 							.form-group
 								p
-									label.col-form-label(for='state') State
-									select#state(name='state')
+									label.col-form-label(for='search_state') State
+									select#state(name='search_state')
 										option(value='', selected='selected') Select a State
 										option(value='AL') Alabama
 										option(value='AK') Alaska
