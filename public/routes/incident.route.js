@@ -168,7 +168,7 @@ router.get('/:id/edit', function(req, res) {
             res.format({
                 //HTML response will render the 'edit.jade' template
                 html: function(){
-                       res.render('inicidents/edit', {
+                       res.render('incidents/edit', {
                           title: 'Incident' + incident._id,
                           "incident" : incident
                       });
@@ -289,6 +289,30 @@ router.route('/search')
               res.json(incident);
           }
         });
-      });
+      })
+
+      .post(function(req, res) {
+        console.log("IN SEARCH POST");
+        mongoose.model('Incident').find({state:req.body.state}, function (err, incident) {
+        if (err) {
+            console.log('GET Error: There was a problem retrieving: ' + err);
+        } else {
+            res.format({
+                html: function(){
+                    res.render('incidents/index',{
+                        title:'All gun incidents for State: '+req.body.state,
+                        "incidents": incident
+                    });
+                },
+
+                json: function(){
+                    res.json(infophotos);
+                }
+            });
+        }
+        });
+    });
+
+
 
 module.exports = router;
