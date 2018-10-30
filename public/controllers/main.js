@@ -153,11 +153,3 @@ module.exports.get_protected = function(req, res)
 {
     res.render('protected', {name: req.session.user.username});
 }; 
-
-//GET database page
-
-module.exports.get_database = function(req, res)
-{
-    res.render('data', {name: req.session.user.username});
-}; 
-

@@ -33,8 +33,4 @@ router.get('/logout', ctrlMain.get_logout);
 
 router.get('/protected', ctrlMain.loggedIn, ctrlMain.get_protected);
 
-//GET database page
-
-router.get('/data', ctrlMain.loggedIn, ctrlMain.get_database);
-
 module.exports = router ; 
