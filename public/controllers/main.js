@@ -160,3 +160,10 @@ module.exports.get_search = function(req, res)
 {
     res.render('incidents/search');
 }; 
+
+//GET dashboard page
+
+module.exports.get_dashboard = function(req, res)
+{
+    res.render('dashboard');
+}; 

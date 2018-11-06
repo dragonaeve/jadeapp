@@ -35,4 +35,7 @@ router.get('/protected', ctrlMain.loggedIn, ctrlMain.get_protected);
 
 router.get('/incidents/search', ctrlMain.loggedIn, ctrlMain.get_search);
 
+//GET dashboard
+router.get('/dashboard', ctrlMain.loggedIn, ctrlMain.get_dashboard);
+
 module.exports = router ; 

@@ -63,6 +63,7 @@
         ]);
 
         var options = {
+          title: 'Number of Incidents per State per 100,000 People',
           region: 'US',
           displayMode: 'regions',
           resolution: 'provinces',

@@ -1,3 +1,119 @@
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<div id="regions_div" style="width: 900px; height: 500px;"></div>
-<script type="text/javascript" src="../js/geochart.js"></script>
+<html>
+<head>
+	<title>Dashboard</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link href="https://bootswatch.com/4/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+YpxMU1QQywaQtI3dMQAwIcu0vVDuOREjQPC59qblQHg9nTdcrUXMPnanUaldUnY" crossorigin="anonymous">
+		<link rel="stylesheet" href="../css/index.css">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="../js/geochart.js"></script>
+	<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+
+			function drawChart() {
+				var data = google.visualization.arrayToDataTable([ 
+					['Year', 'California', 'Texas', 'Florida', 'Illinois'],
+					['2014',  1320,      1094,      873,      637],
+					['2015',  1204,      1136,      796,      688],
+					['2016',  1265,      1313,     1001,      946],
+					['2017',  1423,      1169,      950,      959,]
+				]);
+
+				var options = {  
+					title: 'State - wise Trend Line',
+					hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+					vAxis: {minValue: 0}
+				};
+
+				var series = { 
+					areaOpacity: 0.7
+				};
+
+				var chart = new google.visualization.AreaChart(document.getElementById('chart_div_area'));
+				chart.draw(data, options, series);
+			}
+	</script>
+	<script type="text/javascript">
+				google.charts.load('current', {packages: ['corechart', 'bar']});
+				google.charts.setOnLoadCallback(drawBasic);
+
+				function drawBasic() {
+
+				var data = google.visualization.arrayToDataTable([
+				['Gun Type', 'Number', { role: 'style' } ],
+				['Hand-Gun', 41, '#FF4C4C' ],
+				['Riffle', 33, '#ff6666'],
+				['Shotgun', 12, '#ff7f7f'],
+				['Semi-Automatic', 8, '#ff9999'],
+				['Automatic', 6, '#ffb2b2']
+
+				]);
+
+				var options = {
+				title: '% of Incidents by Gun Type',
+				legend: {position: 'none'}, 
+				chartArea: {width: '25%', height: '70%'},
+				hAxis: {
+				title: '% Of Incidents',
+				minValue: 0, maxValue: 50
+				},
+				};
+
+				var chart = new google.visualization.BarChart(document.getElementById('chart_div_bar'));
+
+				chart.draw(data, options);
+				}
+	</script>
+	<script type="text/javascript">
+				google.charts.load('current', {'packages':['corechart']});
+				google.charts.setOnLoadCallback(drawSeriesChart);
+
+				function drawSeriesChart() {
+
+						var data = google.visualization.arrayToDataTable([
+								['ID', 'Average Age', 'Average Number of Victims',       'Population'],
+								['CA',    33,              3,        3373990],
+								['IN',    56,              2,               819023],
+								['FL',    22,              5,               552301],
+								['GA',    52,              11,         797168],
+								['AL',    60,               6,              618015],
+								['AZ',    17,              7,          731372],
+								['IA',    43,              8,          310900],
+								['PA',    55,              3,          748508],
+								['VA',    62,               4,              1418500],
+								['WA',    70,              2,        3070070]
+						]);
+
+						var options = {
+								title: 'Correlation between Average Age, Average victim Count ' +
+										'and population of the States',
+								hAxis: {title: 'Avg. Age'},
+								vAxis: {title: 'Avg. Victim Count'},
+								bubble: {textStyle: {fontSize: 11}}
+						};
+
+						var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+						chart.draw(data, options);
+				}
+	</script>
+</head>
+	<body>
+		<h3 align="center">Informational Dashboard</h3>
+		<div class="container" style="width: 100%; height: 100%; padding: 0">
+			<div class="row">
+				<div class="col">
+					<div id="regions_div"></div>
+					<div id="chart_div_area" style="height: 360px;"></div>
+				</div>
+				<div class="col">
+					<div id="chart_div_bar" style="width: 500px; height: 300px;"></div>
+					<div id="series_chart_div" style="height: 400px;"></div>
+				</div>
+			</div>
+		</div>
+	<!--Bootstrap Features-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	</body>
+</html>
