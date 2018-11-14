@@ -38,4 +38,13 @@ router.get('/incidents/search', ctrlMain.loggedIn, ctrlMain.get_search);
 //GET dashboard
 router.get('/dashboard', ctrlMain.loggedIn, ctrlMain.get_dashboard);
 
+//API calls
+router.get('/incidentlist', ctrlMain.get_incidentlist);
+// router.get('/incidentlist/:id', ctrlMain.get_showincident);
+router.get('/newincident', ctrlMain.get_newincident);
+// router.get('/editincident/:id', ctrlMain.get_editincident);
+router.post('/addincident', ctrlMain.post_addincident);
+// router.post('/deletelist/:id', ctrlMain.post_updateincident);
+router.get('/deleteincident/:id', ctrlMain.get_deleteincident);
+
 module.exports = router ; 

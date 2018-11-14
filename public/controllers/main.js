@@ -1,3 +1,18 @@
+var express = require('express'),
+    router = express.Router(),
+    mongoose = require('mongoose'),
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override');
+
+router.use(bodyParser.urlencoded({extended: true}));
+
+router.use(methodOverride(function(req,res){
+    if(req.body && typeof req.body == 'object' && '_method' in req.body){
+        var method = req.body._method
+        delete req.body._method
+        return method
+    } 
+}));
 var registeredUsers = [] ;
 module.exports.loggedIn = function(req, res, next)
 {
@@ -167,3 +182,124 @@ module.exports.get_dashboard = function(req, res)
 {
     res.render('dashboard');
 }; 
+
+//API calls
+module.exports.get_incidentlist = function(req,res,next)
+{
+    mongoose.model('Incident').find({},function(err,incident){
+        if(err){
+            return console.error(err);
+        }else{
+            res.format({
+                html: function(){
+                    res.render('incidents/index',{
+                        title:'All gun incidents',
+                        "incidents": incident
+                    });
+                },
+
+                json: function(){
+                    res.json(infophotos);
+                }
+            });
+        }
+    });
+};
+// //router.get('/incidentlist/:id', ctrlMain.get_showincident);
+module.exports.get_newincident = function(req,res){
+        res.render('incidents/adddata',{title: 'Add new incidents'});
+};
+// router.get('/editincident/:id', ctrlMain.get_editincident);
+module.exports.post_addincident = function(req,res){
+    var date = req.body.date;
+    var state = req.body.state;
+    var citycounty = req.body.citycounty;
+    var address = req.body.address;
+    var n_killed = req.body.n_killed;
+    var n_injured = req.body.n_injured;
+    var incident_url = req.body.incident_url;
+    var source_url = req.body.source_url;
+    var congressional_district = req.body.congressional_district;
+    var gun_type = req.body.gun_type;
+    var incident_characteristics = req.body.incident_characteristics;
+    var latitude = req.body.latitude;
+    var location_description = req.body.location_description;
+    var longitude = req.body.longitude;
+    var n_guns_involved = req.body.n_guns_involved;
+    var notes = req.body.notes;
+    var participant_age = req.body.participant_age;
+
+    mongoose.model("Incident").create({
+        date:date,
+        state:state,
+        citycounty:citycounty,
+        address:address,
+        n_killed:n_killed,
+        n_injured:n_injured,
+        incident_url:incident_url,
+        source_url:source_url,
+        congressional_district:congressional_district,
+        gun_type:gun_type,
+        incident_characteristics:incident_characteristics,
+        latitude:latitude,
+        location_description:location_description,
+        longitude:longitude,
+        n_guns_involved:n_guns_involved,
+        notes:notes,
+        participant_age:participant_age
+
+    },function(err,incident){
+        if(err){
+            res.send("There was a problem adding information to database!");
+        }
+        else{
+            console.log('POST creating new incident: '+incident);
+            res.format({
+                html: function(){
+                    res.location("incidents");
+                    res.redirect("/incidents");
+
+                },
+
+                json: function(){
+                    res.json(incident);
+                }
+            });
+            
+        }
+        
+    })
+};
+// router.post('/deletelist/:id', ctrlMain.post_updateincident);
+module.exports.get_deleteincident = function(req,res){
+    console.log(req.params.id);
+    var __id  = req.params.id;
+    mongoose.model('Incident').findById(__id, function (err, incident) {
+        if (err) {
+            return console.error(err);
+        } else {
+            //remove it from Mongo
+            console.log("test");
+            incident.remove(function (err, incident) {
+                if (err) {
+                    return console.error(err);
+                } else {
+                    //Returning success messages saying it was deleted
+                    console.log('DELETE removing ID: ' + incident._id);
+                    res.format({
+                        //HTML returns us back to the main page, or you can create a success page
+                          html: function(){
+                               res.redirect("/incidents");
+                         },
+                         //JSON returns the item with the message that is has been deleted
+                        json: function(){
+                               res.json({message : 'deleted',
+                                   item : incident
+                               });
+                         }
+                      });
+                }
+            });
+        }
+    })
+};
