@@ -44,7 +44,8 @@ router.get('/incidentlist', ctrlMain.get_incidentlist);
 router.get('/newincident', ctrlMain.get_newincident);
 // router.get('/editincident/:id', ctrlMain.get_editincident);
 router.post('/addincident', ctrlMain.post_addincident);
-// router.post('/deletelist/:id', ctrlMain.post_updateincident);
+// router.post('/incidentlist/:id', ctrlMain.post_updateincident);
 router.get('/deleteincident/:id', ctrlMain.get_deleteincident);
 
-module.exports = router ; 
+module.exports = router;
+ 
