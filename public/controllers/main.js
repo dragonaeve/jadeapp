@@ -205,6 +205,109 @@ module.exports.get_incidentlist = function(req,res,next)
         }
     });
 };
+
+module.exports.get_showincident = function(req,res){
+
+    var __id = req.params.id ; 
+
+    mongoose.model('Incident').findById(__id, function (err, incident) {
+      if (err) {
+        console.log('GET Error: There was a problem retrieving: ' + err);
+      } else {
+        console.log('GET Retrieving ID: ' + incident._id);
+        res.format({
+          html: function(){
+              res.render('incidents/show', {
+                "incident" : incident
+              });
+          },
+          json: function(){
+              res.json(incident);
+          }
+        });
+      }
+    });
+  };
+
+  module.exports.get_editincident = function(req, res) {
+
+    var __id = req.params.id ; 
+
+    mongoose.model('Incident').findById(__id, function (err, incident) {
+        if (err) {
+            console.log('GET Error: There was a problem retrieving: ' + err);
+        } else {
+           
+            console.log('GET Retrieving ID: ' + incident._id);
+            
+            res.format({
+               
+                html: function(){
+                       res.render('incidents/incident._id/edit', {
+                          title: 'Incident' + incident._id,
+                          "incident" : incident
+                      });
+                 },
+                
+                json: function(){
+                       res.json(incident);
+                 }
+            });
+        }
+    });
+};
+
+      
+module.exports.post_updateincident = function (req, res) {
+    var __id = req.params.id;
+    mongoose.model('Incident').findById(__id, function (err, incident) {
+            
+            incident.update({
+                date:date,
+                state:state,
+                citycounty:citycounty,
+                address:address,
+                n_killed:n_killed,
+                n_injured:n_injured,
+                incident_url:incident_url,
+                source_url:source_url,
+                congressional_district:congressional_district,
+                gun_type:gun_type,
+                incident_characteristics:incident_characteristics,
+                latitude:latitude,
+                location_description:location_description,
+                logitude:logitude,
+                n_guns_involved:n_guns_involved,
+                notes:notes,
+                participant_age:participant_age
+        
+            }, function (err, incidentID) {
+              if (err) {
+                  res.send("There was a problem updating the information to the database: " + err);
+              } 
+              else {
+                      
+                      res.format({
+                          html: function(){
+                               res.redirect("/incidents/" + incident._id);
+                         },
+                         
+                        json: function(){
+                               res.json(incident);
+                         }
+                      });
+               }
+            })
+        });
+
+};
+  
+
+
+
+
+
+
 // //router.get('/incidentlist/:id', ctrlMain.get_showincident);
 module.exports.get_newincident = function(req,res){
         res.render('incidents/adddata',{title: 'Add new incidents'});
