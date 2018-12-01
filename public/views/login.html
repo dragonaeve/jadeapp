@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../jquery-ui-1.12.1.custom/jquery-ui.css">
+  </head>
+  <body>
+    <h2 align="center"><i>Login Form</i></h2>
+    <form action="/login" style="margin-top: 10px; box-shadow: 7px 7px #f1f1f1" method="POST">
+      <div class="container">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+      </div>
+      <div class="pwdcontainer">
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+      </div>
+      <div>
+        <input style="margin: 10px" type="checkbox" checked="checked" name="remember"> Remember me
+      </div><br>
+      <div><span class="psw" style="margin-left: 30px"><a href="#">Forgot password ?</a></span></div>
+      <div>
+        <label>
+          <button type="Submit">Login</button>
+        </label>
+      </div>
+    </form>
+  </body>
+</html>

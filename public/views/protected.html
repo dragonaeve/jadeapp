@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Silencer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://bootswatch.com/4/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+YpxMU1QQywaQtI3dMQAwIcu0vVDuOREjQPC59qblQHg9nTdcrUXMPnanUaldUnY" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+      <script src="https://code.jquery.com/jquery-3.3.1.js">
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript">
+          $(function () {
+          	$("#draggable").draggable();
+          });
+          
+          
+        </script>
+      </script>
+    </script>
+    <script type="text/javascript">
+      function draw() {
+      	var canvas = document.getElementById("canvas");
+      	var con = canvas.getContext("2d");
+      	con.strokeStyle = "black";
+      	con.strokeRect(0, 0, 300, 200);
+      	con.strokeStyle = "green";
+      	con.lineWidth = "1";
+      	con.beginPath();
+      	con.moveTo(192.5182, 45.4739);
+      	con.lineTo(195.2991, 47.7629);
+      	con.lineTo(204.7748, 46.6458);
+      	con.lineTo(210.6113, 50.1874);
+      	con.lineTo(219.6750, 71.4020);
+      	con.lineTo(233.2706, 78.8399);
+      	con.lineTo(231.3137, 89.6848);
+      	con.lineTo(226.8161, 90.2808);
+      	con.lineTo(213.6325, 80.1964);
+      	con.lineTo(204.7062, 79.7624);
+      	con.lineTo(196.1231, 71.9452);
+      	con.lineTo(155.9543, 81.3899);
+      	con.lineTo(155.7483, 54.2174);
+      	con.lineTo(147.4399, 48.6620);
+      	con.closePath();
+      	con.stroke();
+      }
+      
+      script(type = 'text/javascript', src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    </script>
+  </head>
+  <body ng-app="MEANapp">
+    <script src="js/script.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-dark" ng-controller="HeaderController">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand" href="/protected">Silencer</a><a href="/protected"><img class="img-fluid" src="../assets/profesor.png" height="30" width="30"></a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active"><a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/incidents">Incidents</a></li>
+          <li class="nav-item"><a class="nav-link" href="/incidents/addData">Add Entry</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row no-gutters">
+        <div class="col-md-9 no-gutters" style="background-color: lightgreen">
+          <iframe src="views/map.html" height="100%" width="100%"></iframe>
+        </div>
+        <div class="col-md-3" style="height: 100%">
+          <div class="row-md-2 row-lg-2" style="background-color: lightblue">
+            <div ng-controller="FilterController">
+              <div class="container-filter container-blue" ng-view="">
+                <div autocomplete="on" ng-submit="filter()" name="SubmitForm">
+                  <fieldset>
+                    <div class="form-group">
+                      <label class="col-form-label" for="Start">Start</label>
+                      <input class="form-control" id="Start" type="date" name="start" placeholder="Start Date" ng-model="SubmitForm1.start"><small class="form-text text-help" id="Start-Help">Start Date</small>
+                      <select id="cityList">
+                        <option value="noCity">----Select City-----</option>
+                        <option value="SanJose">San Jose</option>
+                        <option value="LosAngeles">Los Angeles</option>
+                        <option value="Hawthorne">Hawthorne</option>
+                        <option value="Lorain">Lorain</option>
+                        <option value="Aurora">Aurora</option>
+                      </select>
+                      <!--
+                      <label class="col-form-label" for="End">End</label>
+                      <input type="date" id="End" class="form-control" name="to"  placeholder="End Date" ng-model="SubmitForm1.end">
+                      <small id="End-Help" class="form-text text-help">Start End Date</small>
+                      --><br>
+                      <div class="ui-button btn btn-primary" onclick="generateStat()">Apply Filter</div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-no-gutters h-50 row-md-10 flex-grow-1" style="background-color: honeydew">
+            <div id="draggable" style="z-index:10"><img src="../assets/pin.png" width="40" height="40"></div>
+            <div>
+              <p>Drag this pin to save your location.</p>
+            </div>
+            <script>
+              $(function () {
+              	$("#tabs").tabs();
+              });
+            </script>
+            <div id="tabs">
+              <ul>
+                <li><a href="#tabs-1">About</a></li>
+                <li><a href="#tabs-2">Contact</a></li>
+              </ul>
+              <div id="tabs-1">
+                <script>
+                  $(function () {
+                  	$("#accordion").accordion();
+                  });
+                </script>
+                <div id="accordion">
+                  <h3>History</h3>
+                  <div>
+                    <p>This application was started 5 years ago by a group of students from SJSU.</p>
+                  </div>
+                  <h3>Mission</h3>
+                  <div>
+                    <p>This crowd-sourced project has been started to create awareness among the general public about the consequences of gun violence.</p>
+                  </div>
+                </div>
+              </div>
+              <div id="tabs-2">
+                <p></p>
+                <ol>
+                  <li>Parag Vijayvergia</li>
+                  <li>Anna Chow</li>
+                  <li>Rohan Acharya</li>
+                  <li>Aakash Kanvinde</li>
+                </ol>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
