@@ -1,5 +1,27 @@
-body {font-family: Arial, Helvetica, sans-serif; background-image: url("../assets/shooting.jpg"); background-size: 100%;}
-form {border: 3px solid #f1f1f1; width: 50%; text-align: center; margin-left: 350px; background-color: white;}
+.navbar{
+  background-color: #173d5b;
+    position: relative;
+}
+.sidebar-expanded{
+  background-color: #2a618e;
+  margin: 0;
+}
+#sidebar-container{
+  background-color: #2a618e;
+}
+.list-group{
+  margin: 0;
+}
+.list-group-item {
+  background-color: #3779a5;
+  color: #fbfbfb;
+}
+form {
+  border: 3px solid #f1f1f1; 
+  width: 100%; 
+  text-align: center; 
+  background-color: white;
+}
 
 button {
   padding: .4em 1em;
@@ -24,7 +46,7 @@ button:hover {
 }
 
 input[type=text], input[type=password]{
-  width : 30%;
+  width : 60%;
   padding: 12px 20px;
   margin: 2%;
   display: inline-block;

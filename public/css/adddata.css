@@ -39,6 +39,12 @@ html, body{
       -webkit-filter: grayscale(0);
 }
 
+form {
+  border: 3px solid #f1f1f1; 
+  width: 100%; 
+  background-color: white;
+  padding: 20px;
+}
 
 .navbar{
 	background-color: #173d5b;
