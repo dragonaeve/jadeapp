@@ -38,30 +38,35 @@ html(lang='en')
 						a.nav-link(href='/login')
 							| Login		
 		.container-fluid
-			.row.no-gutters
-				.col-md-9.no-gutters(style='background-color: lightgreen;')
-					iframe(src='views/map.html', height='100%', width='100%')
-				.col-md-3(style='height: 100%;')
-					.row-md-2.row-lg-2(style='background-color: lightblue;')
-						div(ng-controller='FilterController')
-							.container-filter.container-blue(ng-view='')
-								div(autocomplete='on', ng-submit='filter()', name='SubmitForm')
-									fieldset
-										.form-group
-											label.col-form-label(for='Start') Start
-											input#Start.form-control(type='date', name='start', placeholder='Start Date', ng-model='SubmitForm1.start')
-											small#Start-Help.form-text.text-help Start Date
-											select#cityList
-												option(value='noCity') ----Select City-----
-												option(value='SanJose') San Jose
-												option(value='LosAngeles') Los Angeles
-												option(value='Hawthorne') Hawthorne
-												option(value='Lorain') Lorain
-												option(value='Aurora') Aurora
-											//
-												<label class="col-form-label" for="End">End</label>
-												<input type="date" id="End" class="form-control" name="to"  placeholder="End Date" ng-model="SubmitForm1.end">
-												<small id="End-Help" class="form-text text-help">Start End Date</small>
-											br
-											.ui-button.btn.btn-primary(onclick='generateStat()') Apply Filter
-					.col-no-gutters.h-50.row-md-10.flex-grow-1(style='background-color: honeydew;')
+			script.
+				$(function () {
+					$("#tabs").tabs();
+				});
+			#tabs
+				ul
+					li
+						a(href='#tabs-1') About
+					li
+						a(href='#tabs-2') Contact
+				#tabs-1
+					script.
+						$(function () {
+							$("#accordion").accordion();
+						});
+					#accordion
+						h3 History
+						div
+							p
+								| This application was started 5 years ago by a group of students from SJSU.
+						h3 Mission
+						div
+							p
+								| This crowd-sourced project has been started to create awareness among the general public about the consequences of gun violence.
+				#tabs-2
+					p
+					ol
+						li Parag Vijayvergia
+						li Anna Chow
+						li Rohan Acharya
+						li Aakash Kanvinde
+					p
