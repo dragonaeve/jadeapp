@@ -187,6 +187,9 @@ module.exports.get_dashboard = function(req, res)
 	res.render('dashboard');
 }; 
 
+module.exports.get_map = function(req,res){
+	res.render('map');
+};
 //API calls
 module.exports.get_incidentlist = function(req,res,next)
 {

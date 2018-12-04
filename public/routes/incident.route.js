@@ -53,7 +53,7 @@ router.route('/')
 				var location_description = req.body.location_description;
 				var longitude = req.body.longitude;
 				var n_guns_involved = req.body.n_guns_involved;
-				var sources: req.body.sources;
+				var sources = req.body.sources;
 				var state_house_district = req.body.state_house_district;
 				var state_senate_district = req.body.state_senate_district;
 
@@ -201,7 +201,7 @@ router.put('/:id/edit', function(req, res) {
 		var location_description = req.body.location_description;
 		var longitude = req.body.longitude;
 		var n_guns_involved = req.body.n_guns_involved;
-		var sources: req.body.sources;
+		var sources = req.body.sources;
 		var state_house_district = req.body.state_house_district;
 		var state_senate_district = req.body.state_senate_district;
 	 //find the document by ID

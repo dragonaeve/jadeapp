@@ -1,0 +1,16 @@
+div(ng-app='myApp', ng-controller='DemoController')
+					li(infinite-scroll='loadMore()', infinite-scroll-distance='2')
+						div(ng-repeat='incident in incidents')Incident {{$incident.incident_id}}: {{$incident.date}}
+								
+	script.
+		var myApp = angular.module('myApp', ['infinite-scroll']);
+		myApp.controller('DemoController', function($scope) {
+			$scope.incidents = [1, 2, 3, 4, 5, 6, 7, 8];
+
+			$scope.loadMore = function() {
+				var last = $scope.incidents[$scope.incidents.length - 1];
+				for(var i = 1; i <= 8; i++) {
+					$scope.incidents.push(last + i);
+				}
+			};
+		});

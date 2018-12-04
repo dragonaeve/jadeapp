@@ -34,6 +34,7 @@ router.get('/dashboard', ctrlMain.get_dashboard);
 
 router.get('/incidents/search', ctrlMain.loggedIn, ctrlMain.get_search);
 
+router.get('/map', ctrlMain.get_map);
 //DB API calls
 router.get('/incidentlist', ctrlMain.loggedIn, ctrlMain.get_incidentlist);
 

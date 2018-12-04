@@ -40,12 +40,12 @@ html(lang='en')
 							| Login		
 		.container-fluid
 			h1(align='center')
-				Incident ID #{incident._id}
+				Incident ID #{incident.incident_id}
 			form(action='/incidents/#{incident._id}/edit',method='post',name='updateincident',enctype='application/x-www-form-urlencoded')
 				p Incident ID: 
-					input#inputincident_id(type='text', value='div incident.incident_id', name='incident_id')
+					input#inputincident_id(type='text', value='#{incident.incident_id}', name='incident_id')
 				p Date: 
-					input#inputDate(type='date', value='div incident.date', name='date')
+					input#inputDate(type='date', value='#{incident.date}', name='date')
 				p State: 
 					input#inputState(type='text', value='#{incident.state}', name='state')
 				p City/County: 
