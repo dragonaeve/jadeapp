@@ -41,10 +41,10 @@ html(lang='en')
 		.container
 			block content
 				h2.
-					Incident ID #{incident._id}
+					Incident ID #{incident.incident_id}
 				p Date: #{incident.date}
 				p State: #{incident.state}
-				p City or County: #{incident.citycounty}
+				p City or County: #{incident.city_or_county}
 				p Address: #{incident.address}
 				p Number Killed: #{incident.n_killed}
 				p Number Injured: #{incident.n_injured}
@@ -52,10 +52,10 @@ html(lang='en')
 				p Source URL: #{incident.source_url}
 				p Congressional District: #{incident.congressional_district}
 				p Gun Type: #{incident.gun_type}
-				p Incident Characteristics: #{incident.incident_characteristics}
 				p Latitude: #{incident.latitude}
 				p Longitude: #{incident.longitude}
-				p Location Description: #{incident.location_description}
 				p Number of Guns Involved: #{incident.n_guns_involved}
-				p Notes: #{incident.notes}
-				p Participant Age: #{incident.participant_age}
+				p Sources: #{sources}
+				p State House District: #{incident.state_house_district}
+				p State Senate District: #{incident.state_senate_district}
+				

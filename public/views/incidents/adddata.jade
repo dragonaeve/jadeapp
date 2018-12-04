@@ -44,6 +44,9 @@ html
 				fieldset
 					.form-group
 						p
+							label.col-form-label(for='incident_id') Incident ID
+							input#incident_id.form-control(type='text', name='incident_id', placeholder='Incident ID')
+						p
 							label.col-form-label(for='Date') Date
 							input#Date.form-control(type='date', name='date', placeholder='Date')
 						p
@@ -134,14 +137,8 @@ html
 								option(value='automatic') Automatic
 								option(value='other') Other
 						p
-							label.col-form-label(for='incident_characteristics') Characteristics of incident
-							input#address.form-control(type='text', name='incident_characteristics', placeholder='Characteristics of incident')
-						p
 							label.col-form-label(for='latitude') Latitude
 							input#latitude.form-control(type='number', name='latitude', placeholder='latitude')
-						p
-							label.col-form-label(for='location_description') Location Description
-							input#location_description.form-control(type='text', name='location_description', placeholder='Location Description')
 						p
 							label.col-form-label(for='longitude') Longitude
 							input#longitude.form-control(type='number', name='longitude', placeholder='longitude')
@@ -149,11 +146,14 @@ html
 							label.col-form-label(for='n_guns_involved') Number of guns involved
 							input#n_guns_involved.form-control(type='number', name='n_guns_involved', placeholder='Number of guns involved')
 						p
-							label.col-form-label(for='notes') Additional Notes
-							input#notes.form-control(type='text', name='notes', placeholder='Additional notes')
+							label.col-form-label(for='sources') Sources
+							input#sources.form-control(type='text', name='sources', placeholder='Sources')
 						p
-							label.col-form-label(for='participant_age') Age of participants at time of crime
-							input#participant_age.form-control(type='text', name='participant_age', placeholder='Participant age')
+							label.col-form-label(for='state_house_district') State House District
+							input#state_house_district.form-control(type='text', name='state_house_district', placeholder='State House District')
+						p
+							label.col-form-label(for='state_senate_district') State Senate District
+							input#state_senate_district.form-control(type='text', name='state_senate_district', placeholder='State Senate District')
 						br
 						button(input='', type='submit', style='margin-bottom: 20px') Submit Entry
 						button(input='', type='reset', style='margin-bottom: 20px') Reset

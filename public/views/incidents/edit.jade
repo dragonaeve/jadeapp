@@ -42,40 +42,40 @@ html(lang='en')
 			h1(align='center')
 				Incident ID #{incident._id}
 			form(action='/incidents/#{incident._id}/edit',method='post',name='updateincident',enctype='application/x-www-form-urlencoded')
+				p Incident ID: 
+					input#inputincident_id(type='text', value='div incident.incident_id', name='incident_id')
 				p Date: 
 					input#inputDate(type='date', value='div incident.date', name='date')
 				p State: 
 					input#inputState(type='text', value='#{incident.state}', name='state')
 				p City/County: 
-					input#inputCityCounty(type='text', value='#{incident.citycounty}', name='citycounty')
-				p _Address: 
+					input#inputCityCounty(type='text', value='#{incident.city_or_county}', name='citycounty')
+				p Address: 
 					input#inputAddress(type='text', value='#{incident.address}', name='address')
-				p # of people killed: 
+				p Number of people killed: 
 					input#inputKilled(type='text', value='#{incident.n_killed}', name='n_killed')
-				p # of people injured: 
+				p Number of people injured: 
 					input#inputInjured(type='text', value='#{incident.n_injured}', name='n_injured')
-				p Incident-Source: 
+				p Incident URL: 
 					input#inputincident_url(type='text', value='#{incident.incident_url}', name='incident_url')
-				p Data-Source: 
+				p Source URL: 
 					input#inputsource_url(type='text', value='#{incident.source_url}', name='source_url')
-				p congressional_district: 
+				p Congressional district: 
 					input#inputcongressional_district(type='text', value='#{incident.congressional_district}', name='congressional_district')
-				p gun_type: 
+				p Gun type: 
 					input#inputgun_type(type='text', value='#{incident.gun_type}', name='gun_type')
-				p incident_characteristics: 
-					input#inputincident_characteristics(type='text', value='#{incident.incident_characteristics}', name='incident_characteristics')
-				p latitude: 
+				p Latitude: 
 					input#inputlatitude(type='text', value='#{incident.latitude}', name='latitude')
-				p location_description: 
-					input#inputlocation_description(type='text', value='#{incident.location_description}', name='location_description')
-				p logitude: 
-					input#inputlogitude(type='text', value='#{incident.logitude}', name='logitude')
-				p n_guns_involved: 
-					input#inputlogitude(type='text', value='#{incident.logitude}', name='logitude')
-				p notes: 
-					input#inputnotes(type='text', value='#{incident.notes}', name='notes')
-				p participant_age: 
-					input#inputparticipant_age(type='text', value='#{incident.participant_age}', name='participant_age') 
+				p Longitude: 
+					input#inputlongitude(type='text', value='#{incident.longitude}', name='longitude')
+				p Number of guns involved: 
+					input#inputn_guns_involved(type='text', value='#{incident.n_guns_involved}', name='n_guns_involved')
+				p Sources: 
+					input#inputsources(type='text', value='#{incident.sources}', name='sources')
+				p State House District: 
+					input#inputstate_house_district(type='text', value='#{incident.state_house_district}', name='state_house_district')
+				p State Senate District: 
+					input#inputstate_senate_district(type='text', value='#{incident.state_senate_district}', name='state_senate_district')
 				p 
 					input(type='hidden',value='PUT',name='_method')
 				p 
